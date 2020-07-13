@@ -16,7 +16,7 @@
   </div>
   <div>
     <cdk-virtual-scroll-viewport
-      itemSize="100"
+      itemSize="10"
       style="height: 300px;"
       (scrolledIndexChange)="indexChanged($event)"
     >
@@ -41,9 +41,3 @@
     </cdk-virtual-scroll-viewport>
   </div>
 </div>
-
-<pre>
-  {{ operations | json }}
-  {{ lastElement | json }}
-
-</pre>
