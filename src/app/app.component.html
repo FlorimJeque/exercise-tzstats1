@@ -16,13 +16,13 @@
   </div>
   <div>
     <cdk-virtual-scroll-viewport
-      itemSize="10"
+      itemSize="100"
       style="height: 300px;"
       (scrolledIndexChange)="indexChanged($event)"
     >
       <div
         class="table-virtual-row"
-        *cdkVirtualFor="let item of operations.operations; let c = count"
+        *cdkVirtualFor="let item of operations.operations"
         style="height: 40px;"
       >
         <span class="table-virtual-rowid-column">

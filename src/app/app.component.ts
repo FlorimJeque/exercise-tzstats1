@@ -23,5 +23,15 @@ export class AppComponent {
     this.store.subscribe((state) => (this.operations = state.operations));
   }
 
-  indexChanged(evt) {}
+  indexChanged(evt) {
+    if (evt == 14) {
+      /* this.store.dispatch(
+        new operationActions.LoadOperations(this.operations.lastElement.row_id)
+      );
+      this.store.subscribe((state) => {
+        this.operations = state.operations;
+        this.lastElement = state.operations[state.operations.length - 1];
+      }); */
+    }
+  }
 }
