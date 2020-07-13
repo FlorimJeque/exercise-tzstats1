@@ -4,12 +4,13 @@ import { Operation } from '../models/operation.model';
 export function reducer(state: Operation[], action: OperationActions.Actions) {
   switch (action.type) {
     case OperationActions.actions.LOAD_OPERATIONS: {
-      return { ...state };
+      return { ...state, num: action.payload };
     }
     case OperationActions.actions.LOAD_OPERATIONS_SUCCESS: {
       return {
         ...state,
-        ops: action.payload,
+        operations: [...action.payload, state],
+        lastElement: action.payload[action.payload.length - 1],
       };
     }
     case OperationActions.actions.LOAD_OPERATIONS_FAILED: {
@@ -18,5 +19,8 @@ export function reducer(state: Operation[], action: OperationActions.Actions) {
         e: action.payload,
       };
     }
+
+    default:
+      return state;
   }
 }

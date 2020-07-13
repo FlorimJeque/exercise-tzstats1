@@ -20,24 +20,20 @@ export class OperationEffects {
     ofType<operationActions.LoadOperations>(
       operationActions.actions.LOAD_OPERATIONS
     ),
-    mergeMap((actions: operationActions.LoadOperations) =>
-      this.api.loadOperations().pipe(
-        map((operations: Operation[], index) => {
-          const ops = operations.map((value) => {
-            console.log(value);
-            return {
+    mergeMap((action: operationActions.LoadOperations) =>
+      this.api.loadOperations(action.payload).pipe(
+        map((operations: Operation[]) => {
+          return new operationActions.LoadOperationsSuccess(
+            operations.map((value) => ({
               row_id: value['0'],
               time: value['1'],
               type: value['2'],
               sender: value['3'],
               volume: value['4'],
-            };
-          });
-          return new operationActions.LoadOperationsSuccess(ops);
+            }))
+          );
         }),
-        catchError((errr) =>
-          of(new operationActions.LoadOperationsFailed(errr))
-        )
+        catchError((err) => of(new operationActions.LoadOperationsFailed(err)))
       )
     )
   );

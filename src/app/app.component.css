@@ -1,0 +1,43 @@
+.table-virtual {
+  width: 80%;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.table-virtual .table-virtual-header-columns {
+  background-color: lightgray;
+  height: 25px;
+  padding: 1%;
+}
+
+.table-virtual-row {
+  padding-left: 1%;
+  padding-top: 0.6%;
+}
+
+.table-virtual-rowid-column {
+  display: inline-block;
+  min-width: 120px;
+}
+
+.table-virtual-type-column {
+  display: inline-block;
+  min-width: 120px;
+}
+
+.table-virtual-volume-column {
+  display: inline-block;
+  min-width: 250px;
+}
+
+.table-virtual-time-column {
+  display: inline-block;
+  min-width: 180px;
+}
+
+.table-virtual-sender-column {
+  display: inline-block;
+  width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

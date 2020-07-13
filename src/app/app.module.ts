@@ -13,6 +13,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducer } from './reducers/operation.reducers';
 import { OperationEffects } from './effects/operation.effects';
 
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
+
+import { NgPipesModule } from 'ngx-pipes';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,6 +26,10 @@ import { OperationEffects } from './effects/operation.effects';
     AppRoutingModule,
     HttpClientModule,
     ScrollingModule,
+    MatTableModule,
+    MatChipsModule,
+    MatIconModule,
+    NgPipesModule,
     StoreModule.forRoot({ operations: reducer }),
     EffectsModule.forRoot([OperationEffects]),
   ],

@@ -8,7 +8,9 @@ export enum actions {
 }
 
 export class LoadOperations implements Action {
-  readonly type: actions.LOAD_OPERATIONS;
+  readonly type = actions.LOAD_OPERATIONS;
+
+  constructor(public payload: number) {}
 }
 
 export class LoadOperationsSuccess implements Action {
@@ -24,5 +26,5 @@ export class LoadOperationsFailed implements Action {
 }
 export type Actions =
   | LoadOperations
-  | LoadOperationsFailed
-  | LoadOperationsSuccess;
+  | LoadOperationsSuccess
+  | LoadOperationsFailed;

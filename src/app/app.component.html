@@ -1,1 +1,49 @@
-<router-outlet></router-outlet>
+<div class="table-virtual">
+  <div class="table-virtual-header-row">
+    <!-- Get Icons List from - https://material.io/resources/icons/?style=baseline -->
+    <p>
+      <mat-icon aria-hidden="false" aria-label="Example home icon"
+        >history</mat-icon
+      >
+      Recent transactions
+    </p>
+  </div>
+  <div class="table-virtual-header-columns">
+    <span class="table-virtual-type-column">Type</span>
+    <span class="table-virtual-volume-column">Volume</span>
+    <span class="table-virtual-time-column">Time</span>
+    <span class="table-virtual-sender-column">Sender</span>
+  </div>
+  <div>
+    <cdk-virtual-scroll-viewport
+      itemSize="10"
+      style="height: 300px;"
+      (scrolledIndexChange)="indexChanged($event)"
+    >
+      <div
+        class="table-virtual-row"
+        *cdkVirtualFor="let item of operations.operations; let c = count"
+        style="height: 40px;"
+      >
+        <span class="table-virtual-rowid-column">
+          <mat-chip-list aria-label="Selection">
+            <mat-chip color="primary">{{ item.type }}</mat-chip>
+          </mat-chip-list>
+        </span>
+        <span class="table-virtual-volume-column"
+          >{{ item.volume | currency: "USD":"" }} USD</span
+        >
+        <span class="table-virtual-time-column">
+          {{ item.time | date: "MM dd yyyy, h:mm" }}
+        </span>
+        <span class="table-virtual-sender-column"> {{ item.sender }}</span>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+</div>
+
+<pre>
+  {{ operations | json }}
+  {{ lastElement | json }}
+
+</pre>
