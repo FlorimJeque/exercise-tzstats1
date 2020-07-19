@@ -4,7 +4,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 
 import { Observable, of } from 'rxjs';
-import { catchError, mergeMap, map } from 'rxjs/operators';
+import { catchError, mergeMap, map, throttleTime } from 'rxjs/operators';
 
 import * as operationActions from '../actions/operation.actions';
 
@@ -22,6 +22,7 @@ export class OperationEffects {
     ),
     mergeMap((action: operationActions.LoadOperations) =>
       this.api.loadOperations(action.payload).pipe(
+        throttleTime(1000),
         map((operations: Operation[]) => {
           return new operationActions.LoadOperationsSuccess(
             operations.map((value) => ({

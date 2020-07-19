@@ -2,9 +2,7 @@
   <div class="table-virtual-header-row">
     <!-- Get Icons List from - https://material.io/resources/icons/?style=baseline -->
     <p>
-      <mat-icon aria-hidden="false" aria-label="Example home icon"
-        >history</mat-icon
-      >
+      <mat-icon aria-hidden="false" aria-label="Example home icon">history</mat-icon>
       Recent transactions
     </p>
   </div>
@@ -15,24 +13,16 @@
     <span class="table-virtual-sender-column">Sender</span>
   </div>
   <div>
-    <cdk-virtual-scroll-viewport
-      itemSize="10"
-      style="height: 300px;"
-      (scrolledIndexChange)="indexChanged($event)"
-    >
-      <div
-        class="table-virtual-row"
-        *cdkVirtualFor="let item of operations.operations"
-        style="height: 40px;"
-      >
+    <cdk-virtual-scroll-viewport [itemSize]="itemSizeCount" style="height: 250px;"
+      (scrolledIndexChange)="indexChanged($event,operations.operations[operations.operations.length-1])">
+      <div class="table-virtual-row" *cdkVirtualFor="let item of operations.operations ; let count = count"
+        style="height: 40px;">
         <span class="table-virtual-rowid-column">
           <mat-chip-list aria-label="Selection">
-            <mat-chip color="primary">{{ item.type }}</mat-chip>
+            <mat-chip color="primary"> {{item.type}}</mat-chip>
           </mat-chip-list>
         </span>
-        <span class="table-virtual-volume-column"
-          >{{ item.volume | currency: "USD":"" }} USD</span
-        >
+        <span class="table-virtual-volume-column">{{ item.volume | currency: "USD":"" }} USD</span>
         <span class="table-virtual-time-column">
           {{ item.time | date: "MM dd yyyy, h:mm" }}
         </span>
@@ -40,4 +30,5 @@
       </div>
     </cdk-virtual-scroll-viewport>
   </div>
+
 </div>
