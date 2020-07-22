@@ -1,7 +1,19 @@
 .table-virtual {
-  width:700px;
+  width:80%;
   border: 1px solid gray;
   border-radius: 10px;
+}
+
+.table-virtual-header-row p{
+  display: flex;
+  align-content: center;
+  padding-left: 25px;
+}
+
+.table-virtual-header-row p label{
+  display: inline-block;
+  height: 24px;
+  padding: 2px;
 }
 
 .table-virtual .table-virtual-header-columns {
@@ -13,6 +25,7 @@
 .table-virtual-row {
   padding-left: 1%;
   padding-top: 0.6%;
+  font-size: 14px;
 }
 
 .table-virtual-rowid-column {
@@ -23,11 +36,12 @@
 .table-virtual-type-column {
   display: inline-block;
   min-width: 120px;
+  padding-left: 15px;
 }
 
 .table-virtual-volume-column {
   display: inline-block;
-  min-width: 250px;
+  min-width: 350px;
 }
 
 .table-virtual-time-column {

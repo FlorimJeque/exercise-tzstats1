@@ -5,7 +5,6 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import * as operationActions from './actions/operation.actions';
 
 import { AppState } from './app.state';
-import { Operation } from './models/operation.model';
 
 @Component({
   selector: 'app-root',
@@ -27,8 +26,8 @@ export class AppComponent {
   }
 
   indexChanged(evt, element?) {
-    this.lastID = element.row_id;
-    if (evt + this.itemSizeCount === this.operations.operations.length + 2) {
+    this.lastID = element ? element.row_id : this.lastID;
+    if (evt + this.itemSizeCount === this.operations.operations.length + 1) {
       this.store.dispatch(new operationActions.LoadOperations(this.lastID));
     }
   }
