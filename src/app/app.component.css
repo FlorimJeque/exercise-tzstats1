@@ -1,5 +1,5 @@
 .table-virtual {
-  width:80%;
+  width:800px;
   border: 1px solid gray;
   border-radius: 10px;
 }
@@ -52,6 +52,4 @@
 .table-virtual-sender-column {
   display: inline-block;
   width: 100px;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }

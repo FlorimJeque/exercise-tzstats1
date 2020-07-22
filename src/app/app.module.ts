@@ -18,9 +18,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 
 import { NgPipesModule } from 'ngx-pipes';
+import { ShortSenderPipe } from './pipes/short-sender.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ShortSenderPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,
